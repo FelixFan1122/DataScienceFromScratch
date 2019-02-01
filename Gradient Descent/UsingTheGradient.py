@@ -22,6 +22,14 @@ def step(v, direction, step_size):
 def sum_of_squares_gradient(v):
     return [2 ** v_i for v_i in v]
 
+def safe(f):
+    def safe_f(*args, **kwargs):
+        try:
+            return f(*args, **kwargs)
+        except :
+            return float('inf')
+    return safe_f
+
 v = [random.randint(-10, 10) for i in range(3)]
 tolerance = 0.0000001
 while True:
