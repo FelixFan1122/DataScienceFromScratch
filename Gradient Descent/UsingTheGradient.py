@@ -74,7 +74,7 @@ def minimize_stochastic(target_fn, gradient_fn, x, y, theta_0, alpha_0=0.01):
     iterations_with_no_improvement = 0
 
     while iterations_with_no_improvement < 100:
-        value = sum(target_fn(x_i, y_i, theta for x_i, y_i in data)
+        value = sum(target_fn(x_i, y_i, theta) for x_i, y_i in data)
 
         if value < min_value:
             min_theta, min_value = theta, value
